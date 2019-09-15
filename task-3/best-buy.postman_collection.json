@@ -1,0 +1,680 @@
+{
+	"info": {
+		"_postman_id": "98ee0fc6-564b-4dae-9c13-02d40d018939",
+		"name": "best-buy",
+		"description": "Test cases for Best Buy API application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "Get all products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get all products\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Get total of all products', () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response.total).to.eql(51957);",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/products",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a product by id\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"    pm.expect(response.id).to.eql(43900);",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/products/43900",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"products",
+								"43900"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a product that does not exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a product by id\", () => {",
+									"    pm.response.to.be.notFound;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/products/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Request for products"
+		},
+		{
+			"name": "stores",
+			"item": [
+				{
+					"name": "Get all stores",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get all stores\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Get total of all stores', () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response.total).to.eql(1561);",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/stores",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single store",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a store by id\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"    pm.expect(response.id).to.eql(4);",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/stores/4",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"stores",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a store that does not exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a store by id\", () => {",
+									"    pm.response.to.be.notFound;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/stores/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"stores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Requests for stores"
+		},
+		{
+			"name": "services",
+			"item": [
+				{
+					"name": "Get all services",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get all stores\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Get total of all stores', () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response.total).to.eql(21);",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/services",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a service by id\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"    pm.expect(response.id).to.eql(4);",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/services/4",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"services",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single service that does not exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a service by id\", () => {",
+									"    pm.response.to.be.notFound;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/services/22",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"services",
+								"22"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Request for services"
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "Get all categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get all stores\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Get total of all stores', () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response.total).to.eql(4307);",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/categories",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a category by id\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"    pm.expect(response.id).to.eql('abcat0010000');",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/categories/abcat0010000",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories",
+								"abcat0010000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a single category that does not exist",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d539dba4-f5ec-42c0-b3d8-6512ec2333cc",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get a category by id\", () => {",
+									"    pm.response.to.be.notFound;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/categories/22",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"categories",
+								"22"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "utilities",
+			"item": [
+				{
+					"name": "Get api version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85eb0f77-1142-45a5-a5ed-327bcbe2f24a",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"Get api version\", () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"    pm.expect(response.version).to.eql(\"1.1.0\");",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/version",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check health status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85eb0f77-1142-45a5-a5ed-327bcbe2f24a",
+								"exec": [
+									"const response = pm.response.json();",
+									"",
+									"pm.test('Check health status', () => {",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.json;",
+									"    pm.expect(response).to.not.be.empty;",
+									"});",
+									"",
+									"pm.test('Content-Type header is correct', () => {",
+									"    pm.response.to.have.header('Content-Type', 'application/json; charset=utf-8')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{local}}/healthcheck",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"healthcheck"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

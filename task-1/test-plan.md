@@ -71,6 +71,18 @@ Add transport expenses and add income to deposits
 Add eating out expenses and add income to salary
 ------------------------------------------------
 
+List expenses
+=============
+
+List all expenses
+-----------------
+
+List a single expense
+---------------------
+
+List a single expense after add an expense
+------------------------------------------
+
 Delete expenses
 ===============
 
@@ -145,6 +157,18 @@ Add income to salary
 
 Add income to savings
 ---------------------
+
+List incomes
+=============
+
+List all incomes
+-----------------
+
+List a single income
+---------------------
+
+List a single income after add an income
+------------------------------------------
 
 Remove incomes
 ==============
